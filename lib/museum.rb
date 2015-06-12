@@ -11,13 +11,17 @@ class Museum
     all_museums =DB.exec("SELECT * FROM museums;")
     all_museums.each() do |museum|
       name = museum.fetch('name')
-      museums.push(Meseum.new(:name => name))
+      museums.push(Museum.new(:name => name))
     end
     museums 
   end
   
   define_method(:==) do |another_museum|
-    self.name.==(another_museum.name())
+    self.name().==(another_museum.name())
+  end
+  
+  define_method(:save) do 
+    saved_museum = DB.exec("INSERT INTO museums (name) VALUES ('#{@name}');")
   end
 end
 
