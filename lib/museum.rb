@@ -26,6 +26,13 @@ class Museum
     saved_museum = DB.exec("INSERT INTO museums (name) VALUES ('#{@name}') RETURNING id;")
     @id = saved_museum.first().fetch('id').to_i()
   end
+  
+  define_singleton_method(:find) do |id|
+    found_museum = nil
+    museum_to_find = DB.exec("SELECT * FROM museums WHERE id = #{id};")
+    name = museum_to_find.first().fetch("name")
+    found_museum = Museum.new(:name => name, :id => id)
+  end
 end
 
 

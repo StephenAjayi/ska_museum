@@ -29,11 +29,22 @@ describe(Museum) do
       expect(Museum.all()).to(eq([test_museum]))
     end
   end
+  
   describe('#id') do 
     it('returns the id number of an instance of Museum ') do 
       test_museum = Museum.new(:name => "Sterling", :id => nil)
       test_museum.save()
       expect(test_museum.id()).to(be_an_instance_of(Fixnum))
+    end
+  end
+  
+  describe('find') do 
+    it('returns an instance of Museum by it"S id') do 
+      test_museum = Museum.new(:name => "Modern", :id=> nil)
+      test_museum.save()
+      test_museum2 = Museum.new(:name => "Classic", :id => nil)
+      test_museum2.save()
+      expect(Museum.find(test_museum.id())).to(eq(test_museum))
     end
   end
 end
