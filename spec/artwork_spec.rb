@@ -27,4 +27,25 @@ describe(Artwork) do
       expect(Artwork.all()).to(eq([]))
     end
   end
+  
+  describe('#save') do 
+    it('saves an instance of Artwork into an array') do 
+      test_artwork = Artwork.new(:name => "painted Corners", :description => "Modern installation.", :museum_id => 1)
+      test_artwork.save()
+      expect(Artwork.all()).to(eq([test_artwork]))
+    end
+  end
+  
+  describe('#==') do 
+    it('evaluates two instances of Artwork as equal if they have the same name, description and museum_id') do
+      test_artwork = Artwork.new(:name => "painted Corners", :description => "Modern installation.", :museum_id => 1)
+      test_artwork2 = Artwork.new(:name => "painted Corners", :description => "Modern installation.", :museum_id => 1)
+      expect(test_artwork).to(eq(test_artwork2))
+    end
+  end
 end
+               
+ 
+       
+    
+ 

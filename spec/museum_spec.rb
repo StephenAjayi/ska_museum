@@ -15,7 +15,7 @@ describe(Museum) do
   end
   
   describe('#==') do 
-    it('evealuates two instances of Museum as equal if they have the same name') do 
+    it('evealuates two instances of Museum as equal if they have the same name and id') do 
       test_museum = Museum.new(:name => "Wyatt", :id => nil )
       test_museum2 = Museum.new(:name => "Wyatt", :id => nil )
       expect(test_museum).to(eq(test_museum2))

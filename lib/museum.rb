@@ -19,7 +19,7 @@ class Museum
   end
   
   define_method(:==) do |another_museum|
-    self.name().==(another_museum.name())
+    self.name().==(another_museum.name()).&(self.id().==(another_museum.id()))
   end
   
   define_method(:save) do 
