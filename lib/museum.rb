@@ -37,4 +37,12 @@ class Museum
   define_method(:delete) do
     museum_to_delete = DB.exec("DELETE FROM museums * WHERE id = #{@id};")
   end
+  
+  define_method(:update) do |updated_name|
+    binding.pry
+    updated_museum = DB.exec("UPDATE museums SET name = '#{updated_name}' WHERE id = #{@id} RETURNING name;")
+    @name = updated_museum.first().fetch("name")
+  end
 end
+  
+

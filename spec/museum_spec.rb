@@ -58,4 +58,13 @@ describe(Museum) do
       expect(Museum.all()).to(eq([test_museum2]))
     end
   end
+  
+  describe('#update') do 
+    it('changes the name of a save instance of museum') do 
+      test_museum = Museum.new(:name => "Indy", :id => nil)
+      test_museum.save()
+      test_museum.update("Museum of Art")
+      expect(test_museum.name()).to(eq("Museum of Art"))
+    end
+  end
 end
