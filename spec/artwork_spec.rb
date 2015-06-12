@@ -51,6 +51,17 @@ describe(Artwork) do
       expect(test_artwork.id()).to(be_an_instance_of(Fixnum))
     end
   end
+  
+  describe("#delete") do 
+    it("Deletes an instance of Artwork form an array of saved art") do 
+      test_artwork = Artwork.new(:name => "Halo", :description => "Black and white painting.", :museum_id => 1, :id => nil)
+      test_artwork.save() 
+      test_artwork2 = Artwork.new(:name => "Swans", :description => "Black and white painting.", :museum_id => 1, :id => nil)
+      test_artwork2.save() 
+      test_artwork.delete()
+      expect(Artwork.all()).to(eq([test_artwork2]))
+    end
+  end
 end
                
  
