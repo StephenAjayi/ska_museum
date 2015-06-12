@@ -13,4 +13,11 @@ describe(Museum) do
       expect(Museum.all()).to(eq([]))
     end
   end
+  
+  describe('#==')
+  it('evealuates two instances of Museum as equal if they have the same name') do 
+    test_museum = Museum.new(:name => "Wyatt")
+    test_museum2 = Museum.new(:name => "Wyatt")
+    expect(test_museum).to(eq(test_museum2))
+  end
 end
