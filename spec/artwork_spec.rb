@@ -21,5 +21,10 @@ describe(Artwork) do
       expect(test_artwork.museum_id()).to(eq(1))
     end
   end
-end
   
+  describe('.all') do 
+    it('returns an array of saved instances of Artwork, starts empty at first') do 
+      expect(Artwork.all()).to(eq([]))
+    end
+  end
+end
