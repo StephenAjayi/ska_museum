@@ -33,7 +33,8 @@ class Museum
     name = museum_to_find.first().fetch("name")
     found_museum = Museum.new(:name => name, :id => id)
   end
-end
-
-
   
+  define_method(:delete) do
+    museum_to_delete = DB.exec("DELETE FROM museums * WHERE id = #{@id};")
+  end
+end

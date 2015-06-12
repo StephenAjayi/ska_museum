@@ -47,4 +47,15 @@ describe(Museum) do
       expect(Museum.find(test_museum.id())).to(eq(test_museum))
     end
   end
+  
+  describe("#delete") do 
+    it("Deletes an instance of Museum form an array of saved museums") do 
+      test_museum = Museum.new(:name => "The Addy", :id => nil )
+      test_museum.save()
+      test_museum2 = Museum.new(:name => "Lux", :id => nil)
+      test_museum2.save()
+      test_museum.delete()
+      expect(Museum.all()).to(eq([test_museum2]))
+    end
+  end
 end
