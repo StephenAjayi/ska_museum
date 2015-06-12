@@ -7,4 +7,10 @@ describe(Museum) do
       expect(test_museum.name()).to(eq("The Elliot")) 
     end
   end
+  
+  describe('.all') do 
+    it('returns an array of saved instances of Museum, starts out empty at first') do 
+      expect(Museum.all()).to(eq([]))
+    end
+  end
 end
