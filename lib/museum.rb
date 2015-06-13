@@ -35,7 +35,9 @@ class Museum
   end
   
   define_method(:delete) do
-    museum_to_delete = DB.exec("DELETE FROM museums * WHERE id = #{@id};")
+    DB.exec("DELETE FROM museums * WHERE id = #{@id};")
+    DB.exec("DELETE FROM artworks * WHERE museum_id = #{@id}")
+    
   end
   
   define_method(:update) do |updated_name|

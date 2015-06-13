@@ -57,8 +57,18 @@ describe(Museum) do
       test_museum.delete()
       expect(Museum.all()).to(eq([test_museum2]))
     end
+    
+    it('deletes the Artwork of an instance of museum as well') do
+      test_museum = Museum.new(:name => "Hoyt Museum", :id => nil)
+      test_museum.save()
+      test_artwork = Artwork.new(:name => "Moonlight Dance", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
+      test_artwork.save()
+      test_artwork2 = Artwork.new(:name => "Islands", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
+      test_artwork.save()
+      test_museum.delete()
+      expect(Artwork.all()).to(eq([]))
+    end
   end
-  
   describe('#update') do 
     it('changes the name of a save instance of museum') do 
       test_museum = Museum.new(:name => "Indy", :id => nil)
