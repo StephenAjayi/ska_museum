@@ -34,4 +34,15 @@ class Artwork
   define_method(:delete) do
     museum_to_delete = DB.exec("DELETE FROM artworks * WHERE id = #{@id};")
   end
+  
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name, @name)
+    updated_art = DB.exec("UPDATE artworks SET name = '#{@name}' WHERE id = #{@id};")
+    
+    @description = attributes.fetch(:description, @description)
+    updated_art = DB.exec("UPDATE artworks SET description = '#{@description}' WHERE id = #{@id};")
+    
+    @museum_id = attributes.fetch(:museum_id, @museum_id)
+    updated_art = DB.exec("UPDATE artworks SET museum_id = '#{@museum_id}' WHERE id = #{@id};")
+  end
 end

@@ -53,7 +53,7 @@ describe(Artwork) do
   end
   
   describe("#delete") do 
-    it("Deletes an instance of Artwork form an array of saved art") do 
+    it("deletes an instance of Artwork form an array of saved art") do 
       test_artwork = Artwork.new(:name => "Halo", :description => "Black and white painting.", :museum_id => 1, :id => nil)
       test_artwork.save() 
       test_artwork2 = Artwork.new(:name => "Swans", :description => "Black and white painting.", :museum_id => 1, :id => nil)
@@ -62,9 +62,13 @@ describe(Artwork) do
       expect(Artwork.all()).to(eq([test_artwork2]))
     end
   end
+  
+  describe('update') do 
+    it('allows changes to be made to the name, description and museum_id of a saved instance of artwork') do
+      test_artwork = Artwork.new(:name => "Swans", :description => "Black and white painting.", :museum_id => 1, :id => nil)
+      test_artwork.save()
+      test_artwork.update(:name => "Halo")
+      expect(test_artwork.name()).to(eq("Halo"))
+    end
+  end
 end
-               
- 
-       
-    
- 
