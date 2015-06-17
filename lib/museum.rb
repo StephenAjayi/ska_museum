@@ -44,6 +44,19 @@ class Museum
     updated_museum = DB.exec("UPDATE museums SET name = '#{updated_name}' WHERE id = #{@id} RETURNING name;")
     @name = updated_museum.first().fetch("name")
   end
-end
   
-
+  define_method(:artworks) do 
+    museum_artworks = DB.exec("SELECT * FROM artworks WHERE museum_id = #{@id};")
+    artworks = [] 
+    museum_artworks.each do |museum_artwork|
+      name = museum_artwork.fetch("name")
+      description = museum_artwork.fetch("description")
+      museum_id = museum_artwork.fetch("museum_id").to_i()
+      id = museum_artwork.fetch("id").to_i()
+      artworks.push(Artwork.new(:name => name, :description => description, :museum_id => museum_id , :id => id))
+    end
+    artworks
+  end
+end
+      
+   

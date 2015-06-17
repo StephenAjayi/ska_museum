@@ -64,17 +64,30 @@ describe(Museum) do
       test_artwork = Artwork.new(:name => "Moonlight Dance", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
       test_artwork.save()
       test_artwork2 = Artwork.new(:name => "Islands", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
-      test_artwork.save()
+      test_artwork2.save()
       test_museum.delete()
       expect(Artwork.all()).to(eq([]))
     end
   end
+  
   describe('#update') do 
     it('changes the name of a save instance of museum') do 
       test_museum = Museum.new(:name => "Indy", :id => nil)
       test_museum.save()
       test_museum.update("Museum of Art")
       expect(test_museum.name()).to(eq("Museum of Art"))
+    end
+  end
+  
+  describe('#artworks') do 
+    it("returns all instances of artwork associated with a museum's id ") do 
+      test_museum = Museum.new(:name => "The Gregory Museum", :id => nil)
+      test_museum.save()
+       test_artwork = Artwork.new(:name => "Moonlight Dance", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
+      test_artwork.save()
+      test_artwork2 = Artwork.new(:name => "Moonlight Run", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
+      test_artwork2.save()
+      expect(test_museum.artworks()).to(eq([test_artwork, test_artwork2]))
     end
   end
 end

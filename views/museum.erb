@@ -1,0 +1,16 @@
+<h2><%= @museum.name() %></h2>
+
+<% if @museum.artworks.any?() %>
+<h3><%= @museum.name() %>'s Gallery</h3>
+  <ul>
+    <% @museum.artworks().each() do |artwork| %>
+    <li><%= artwork.name() %> <%= artwork.description() %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no pieces for this museum yet, <a href="/">Add a piece here</a></p>
+<% end %>
+
+    
+
+  
