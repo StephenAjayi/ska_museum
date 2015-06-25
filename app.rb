@@ -61,5 +61,16 @@ end
 get('/artwork/:id/edit') do 
   id = params.fetch('id').to_i()
   @artwork = Artwork.find(id)
+  @museums = Museum.all()
   erb(:artwork_edit)
 end
+
+patch('/artwork/:id') do
+  new_name = params.fetch('updated_name')
+  new_description = params.fetch('updated_description')
+  id = params.fetch('id')
+  @artwork = Artwork.find(id)
+  @artwork.update(:name => new_name, :description => new_description)
+  redirect back
+end 
+  

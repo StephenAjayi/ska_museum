@@ -1,13 +1,40 @@
 <h3>Update <%= @artwork.name() %></h3>
 
+<h4>info about this piece:</h4>
+<p>Name: <%= @artwork.name() %></p>
+<p>Description: <%= @artwork.description() %>
+
 <form action="/artwork/<%= @artwork.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
-  <label for="updated_name">name<%= @museum.name %></label>
-  <input name="name" type="text">
-  <label for="updated_description">description<%= @museum.name %></label>
+  <label for="updated_name">Change the name of this piece:</label>
+  <input name="updated_name" type="text">
+  <label for="updated_description">Change the description of this piece:</label>
   <input name="updated_description" type="text">
-  <button typ="submit">Update Museum</button>
+  <button typ="submit">Update <%= @artwork.name %></button>
+  <label for="museum_id">Select a museum</label>
+  <select name='museum_id' type='text'>
+    <% @museums.each() do |museum| %>
+    <option value="<%= museum.id()%>"> <%= museum.name() %> </option>
+    <% end %>
+  </select>
 </form>
+
+<h3>Move this piece to a different museum</h3>
+
+<form action=/artwork/<%= @artwork.id %>/move" method="post">
+  <input name="_method" type="hidden" value="patch"> 
+  <label for="museum_id">Select a museum</label>
+  <select name='museum_id' type='text'>
+    <% @museums.each() do |museum| %>
+    <option value="<%= museum.id()%>"> <%= museum.name() %> </option>
+    <% end %>
+  </select>
+  <button type="submit">Move <%= @artwork.name %></button>
+</form>
+
+
+
+
 
 
 

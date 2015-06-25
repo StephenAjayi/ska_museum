@@ -36,10 +36,18 @@ class Artwork
   end
   
   define_method(:update) do |attributes|
+    if attributes.fetch(:name).==("")
+      @name = @name
+    else
     @name = attributes.fetch(:name, @name)
+    end
     updated_art = DB.exec("UPDATE artworks SET name = '#{@name}' WHERE id = #{@id};")
     
+    if attributes.fetch(:description).==("")
+      @description = @description
+    else
     @description = attributes.fetch(:description, @description)
+    end
     updated_art = DB.exec("UPDATE artworks SET description = '#{@description}' WHERE id = #{@id};")
     
     @museum_id = attributes.fetch(:museum_id, @museum_id)

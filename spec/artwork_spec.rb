@@ -70,6 +70,13 @@ describe(Artwork) do
       test_artwork.update(:name => "Halo")
       expect(test_artwork.name()).to(eq("Halo"))
     end
+    
+    it("does not allow an empty string to update name") do
+      test_artwork = Artwork.new(:name => "Swans", :description => "Black and white painting.", :museum_id => 1, :id => nil)
+      test_artwork.save()
+      test_artwork.update(:name => "")
+      expect(test_artwork.name()).to(eq("Swans"))
+    end
   end
   
   describe('find') do 
