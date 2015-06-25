@@ -4,7 +4,7 @@
 <h3><%= @museum.name() %>'s Gallery</h3>
   <ul>
     <% @museum.artworks().each() do |artwork| %>
-    <li><%= artwork.name() %> <%= artwork.description() %></li>
+    <li><%= artwork.name() %> <%= artwork.description() %><a href="/artwork/<%= artwork.id() %>/edit">Edit <%= artwork.name %></a></li>
     <% end %>
   </ul>
 <% else %>

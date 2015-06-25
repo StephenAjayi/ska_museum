@@ -71,4 +71,14 @@ describe(Artwork) do
       expect(test_artwork.name()).to(eq("Halo"))
     end
   end
+  
+  describe('find') do 
+    it('returns an instance of Museum by it"S id') do 
+     test_artwork = Artwork.new(:name => "Swans", :description => "Black and white painting.", :museum_id => 1, :id => nil)
+      test_artwork.save()
+       test_artwork2 = Artwork.new(:name => "Swans", :description => "Black and white painting.", :museum_id => 1, :id => nil)
+      test_artwork2.save()
+      expect(Artwork.find(test_artwork.id())).to(eq(test_artwork))
+    end
+  end
 end

@@ -1,0 +1,17 @@
+<h3>Update <%= @artwork.name() %></h3>
+
+<form action="/artwork/<%= @artwork.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="updated_name">name<%= @museum.name %></label>
+  <input name="name" type="text">
+  <label for="updated_description">description<%= @museum.name %></label>
+  <input name="updated_description" type="text">
+  <button typ="submit">Update Museum</button>
+</form>
+
+
+
+<form action="/artwork/<%=@artwork.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button typ="submit">Delete <%= @artwork.name() %></button>
+</form>

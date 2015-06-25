@@ -45,4 +45,14 @@ class Artwork
     @museum_id = attributes.fetch(:museum_id, @museum_id)
     updated_art = DB.exec("UPDATE artworks SET museum_id = '#{@museum_id}' WHERE id = #{@id};")
   end
+  
+  define_singleton_method(:find) do |id|
+    found_artwork = nil
+    artwork_to_find = DB.exec("SELECT * FROM artworks WHERE id = #{id};")
+    name = artwork_to_find.first().fetch("name")
+    description = artwork_to_find.first().fetch("description")
+    museum_id = artwork_to_find.first().fetch("museum_id").to_i()
+    id = artwork_to_find.first().fetch('id').to_i()
+    found_artwork = Artwork.new(:name => name, :description => description, :museum_id => museum_id, :id => id )
+  end
 end

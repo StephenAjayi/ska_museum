@@ -5,7 +5,7 @@
 
 <ul>
   <% @museums.each do |museum| %>
-  <li><a href="/museum/<%= museum.id() %>"><%= museum.name() %></a></li>
+  <li><a href="/museum/<%= museum.id() %>"><%= museum.name() %></a><a href="/museum/<%= museum.id %>/edit">Update <%= museum.name() %></a></li>
   <% end %>
 </ul>
 <% else %>
