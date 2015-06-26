@@ -14,7 +14,7 @@
             <p class="lead">Click on a museum to view it's gallery:</p>
             <ul class="list-group">
             <% @museums.each do |museum| %>
-              <li class="list-group-item"><a class="museum_link" href="/museum/<%= museum.id() %>"><%= museum.name() %></a><a class="edit_link" href="/museum/<%= museum.id %>/edit">Edit <%= museum.name() %></a></li>
+              <li class="list-group-item"><a class="museum_link" href="/museums/<%= museum.id() %>"><%= museum.name() %></a><a class="edit_link" href="/museums/<%= museum.id %>/edit">Edit <%= museum.name() %></a>               </li>
             <% end %>
             </ul>
           <% else %>
@@ -28,7 +28,7 @@
         </div>
         <div class="artwork">
           <p class="lead">Add an art piece to a museum below:</p>
-          <form action="/artwork" method="post">
+          <form action="/artworks" method="post">
             <label for="museum_id">Select a museum</label>
             <select name='museum_id' type='text'>
               <% @museums.each() do |museum| %>

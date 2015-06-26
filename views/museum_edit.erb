@@ -11,7 +11,7 @@
         </div>
         <div class="museum-edit">
           <p class="lead">Change museum name:</p>
-          <form action="/museum/<%= @museum.id %>" method="post">
+          <form action="/museums/<%= @museum.id %>" method="post">
             <input name="_method" type="hidden" value="patch">
             <label for="updated_name">New name<%= @museum.name %></label>
             <input name="updated_name" type="text">
@@ -20,7 +20,7 @@
         </div>
         <div class="museum-delete">
           <p class="lead">Delete <%= @museum.name() %>
-          <form action="/museum/<%=@museum.id %>" method="post">
+          <form action="/museums/<%=@museum.id %>" method="post">
             <input name="_method" type="hidden" value="delete">
             <button class ="btn btn-danger" type="submit">Delete Museum</button>
           </form>

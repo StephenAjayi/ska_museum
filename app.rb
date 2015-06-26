@@ -17,32 +17,32 @@ post('/museums') do
   @museum = Museum.new(:name => museum_name, :id => nil)
   @museum.save()
   @museums = Museum.all()
-  redirect back
+  redirect "/"
 end
 
-post('/artwork') do
+post('/artworks') do
   @museums = Museum.all()
   artwork_name = params.fetch('artwork_name')
   artwork_description = params.fetch('artwork_description')
   museum_id = params.fetch('museum_id')
   @artwork = Artwork.new(:name => artwork_name, :description => artwork_description, :museum_id => museum_id, :id => nil)
   @artwork.save()
-  redirect back
+  redirect "/"
 end
 
-get('/museum/:id') do
+get('/museums/:id') do
   id = params.fetch('id')
   @museum = Museum.find(id.to_i)
   erb(:museum)
 end
 
-get('/museum/:id/edit') do 
+get('/museums/:id/edit') do 
   id = params.fetch('id').to_i()
   @museum = Museum.find(id)
   erb(:museum_edit)
 end
 
-patch('/museum/:id') do 
+patch('/museums/:id') do 
   new_name = params.fetch('updated_name')
   id = params.fetch('id').to_i()
   @museum = Museum.find(id)
@@ -50,22 +50,22 @@ patch('/museum/:id') do
   erb(:museum)
 end
 
-delete('/museum/:id') do 
+delete('/museums/:id') do 
   id = params.fetch('id').to_i()
   @museum = Museum.find(id)
   @museum.delete()
   @museums = Museum.all()
-  erb(:index)
+  redirect "/"
 end
 
-get('/artwork/:id/edit') do 
+get('/artworks/:id/edit') do 
   id = params.fetch('id').to_i()
   @artwork = Artwork.find(id)
   @museums = Museum.all()
   erb(:artwork_edit)
 end
 
-patch('/artwork/:id') do
+patch('/artworks/:id') do
   new_name = params.fetch('updated_name')
   new_description = params.fetch('updated_description')
   id = params.fetch('id')
@@ -74,12 +74,19 @@ patch('/artwork/:id') do
   redirect back
 end 
 
-patch('/artwork/:id/move') do 
+patch('/artworks/:id/move') do 
   new_museum = params.fetch('updated_museum_id')
   id = params.fetch('id').to_i()
   @artwork = Artwork.find(id)
   @artwork.update(:name => @artwork.name(), :description => @artwork.description, :museum_id => new_museum)
-  @museums =Museum.all()
+  @museums = Museum.all()
   erb(:index)
 end 
-  
+
+delete('/artworks/:id') do 
+  id = params.fetch('id')
+  @artwork = Artwork.find(id)
+  museum_id = @artwork.museum_id()
+  @artwork.delete()
+  redirect "/museums/#{museum_id}"
+end

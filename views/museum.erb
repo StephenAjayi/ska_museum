@@ -8,11 +8,11 @@
             <h3><%= @museum.name() %>'s Gallery</h3>
             <ul class="list-group">
             <% @museum.artworks().each() do |artwork| %>
-              <li class="list-group-item"><%= artwork.name() %> <%= artwork.description() %><a href="/artwork/<%= artwork.id() %>/edit">Edit <%= artwork.name %></a></li>
+              <li class="list-group-item"><p><%= artwork.name() %></p> <p><%= artwork.description() %></p><a class="edit_link" href="/artworks/<%= artwork.id() %>/edit">Edit <%= artwork.name %></a></li>
             <% end %>
             </ul>
           <% else %>
-            <p>There are no pieces for this museum yet, <a href="/">add a piece here.</a></p>
+            <p>This museum has no pieces in it's gallery, <a href="/">add a piece here.</a></p>
           <% end %>
         </div>
       </div>
