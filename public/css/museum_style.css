@@ -1,0 +1,116 @@
+body {
+  background: #fff;
+}
+
+button {
+  margin:15px 0px 15px 0px;
+}
+
+input {
+  margin: 10px 10px 10px 10px;
+  vertical-align: center;
+}
+
+.home-image {
+  background: url(/images/museum.jpg);
+  height: 740px;
+  background-size: 540px 740px;
+}
+
+.home-header h1 {
+  margin: 80px 0px 10px 0px;
+  text-align: center;
+  letter-spacing: 4px;
+  color: #abb8b8;
+  text-transform: uppercase;
+}
+
+.museums { 
+  margin: 15px 0px 15px 0px;
+  border-bottom: solid 1px #e5e5e5;
+  padding:30px;
+  text-align: center;
+}
+
+.artwork {
+  margin: 50px 0px 100px 0px;
+  border-bottom: solid 1px #e5e5e5;
+  padding:30px;
+  text-align: center;
+  padding:10px 0px 10px 0px;
+  
+}
+
+.museum_link {
+  color: #ffd414;
+  font-size: 1.5em;
+  font-weight: 300px;
+  text-transform: uppercase;
+  border-right: solid 1px #000;
+  margin-right: 10px;
+  padding-right: 5px;
+}
+
+.edit_link {
+  color: #cccccc
+}
+
+.list-group-item {
+  background: #333;
+  color:#ffd414;
+}
+
+.museum-artworks-image {
+  background: url(/images/museum_2.jpg);
+  background-size: cover;
+  height:740px;
+}
+
+.jumbotron {
+  background: rgba(0,0,0,0.5);
+  text-align: center;
+  margin-top: 370px;
+}
+
+.jumbotron h2 {
+  color: #fff;
+}
+
+.jumbotron h3 {
+  color:#fff;
+}
+
+.jumbotron p {
+  color: #ffd414;
+}
+
+.museum-edit-image {
+  background: url(/images/hurcules.jpg);
+  height: 740px;
+  background-size: 740px 740px;
+}
+
+.museum-edit-header {
+  margin: 80px 0px 10px 0px;
+  text-align: center;
+  color: #abb8b8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.museum-edit {
+  margin: 60px;
+  text-align: center;
+  border-bottom: solid 1px #e5e5e5;
+  padding: 20px;
+  margin: 15px 0px 15px 0px;
+}
+
+.museum-delete {
+  margin: 60px;
+  text-align: center;
+  border-bottom: solid 1px #e5e5e5;
+  padding: 20px;
+  margin: 15px 0px 15px 0px;
+}
+

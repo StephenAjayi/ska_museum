@@ -73,4 +73,13 @@ patch('/artwork/:id') do
   @artwork.update(:name => new_name, :description => new_description)
   redirect back
 end 
+
+patch('/artwork/:id/move') do 
+  new_museum = params.fetch('updated_museum_id')
+  id = params.fetch('id').to_i()
+  @artwork = Artwork.find(id)
+  @artwork.update(:name => @artwork.name(), :description => @artwork.description, :museum_id => new_museum)
+  @museums =Museum.all()
+  erb(:index)
+end 
   

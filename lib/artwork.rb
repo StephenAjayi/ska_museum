@@ -39,7 +39,7 @@ class Artwork
     if attributes.fetch(:name).==("")
       @name = @name
     else
-    @name = attributes.fetch(:name, @name)
+      @name = attributes.fetch(:name, @name)
     end
     updated_art = DB.exec("UPDATE artworks SET name = '#{@name}' WHERE id = #{@id};")
     

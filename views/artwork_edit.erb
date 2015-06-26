@@ -21,10 +21,10 @@
 
 <h3>Move this piece to a different museum</h3>
 
-<form action=/artwork/<%= @artwork.id %>/move" method="post">
+<form action="/artwork/<%= @artwork.id %>/move" method="post">
   <input name="_method" type="hidden" value="patch"> 
   <label for="museum_id">Select a museum</label>
-  <select name='museum_id' type='text'>
+  <select name='updated_museum_id' type='text'>
     <% @museums.each() do |museum| %>
     <option value="<%= museum.id()%>"> <%= museum.name() %> </option>
     <% end %>

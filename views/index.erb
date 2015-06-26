@@ -1,39 +1,46 @@
-<h1>Welcome To SKA Museums</h1>
-
-<% if @museums.any?() %>
-<p>Click on a museum to see its art:</p>
-
-<ul>
-  <% @museums.each do |museum| %>
-  <li><a href="/museum/<%= museum.id() %>"><%= museum.name() %></a><a href="/museum/<%= museum.id %>/edit">Update <%= museum.name() %></a></li>
-  <% end %>
-</ul>
-<% else %>
-<p>There are no museums yet, add one below.</p>
-<% end %>
-
-<form action="/museums" method="post">
-  <label for="museum_name">Assign a name to your new museum:</label>
-  <input name="museum_name" type="text">
-
-  <button type="submit">Add museum</button>
-</form>
-
-<p> Add an art piece to a museum<p>
-
-<form action="/artwork" method="post">
-  <label for="museum_id">Select a museum</label>
-  <select name='museum_id' type='text'>
-    <% @museums.each() do |museum| %>
-    <option value="<%= museum.id()%>"> <%= museum.name() %> </option>
-    <% end %>
-  </select>
-
-
-  <label for="artwork_name">Name of artwork:</label>
-  <input name="artwork_name" type="text">
-  
-  <label for="artwork_description">Description of the piece:</label>
-  <input name="artwork_description" type="text">
-  <button type="submit">Add Artwork</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-lg-6">
+        <div class="home-image">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="home-header"> 
+          <h1>SKA Museums</h1>
+        </div>
+        <div class="museums">
+          <% if @museums.any?() %>
+            <p class="lead">Click on a museum to view it's gallery:</p>
+            <ul class="list-group">
+            <% @museums.each do |museum| %>
+              <li class="list-group-item"><a class="museum_link" href="/museum/<%= museum.id() %>"><%= museum.name() %></a><a class="edit_link" href="/museum/<%= museum.id %>/edit">Edit <%= museum.name() %></a></li>
+            <% end %>
+            </ul>
+          <% else %>
+            <p class="lead">There are no museums yet, add one below.</p>
+          <% end %>
+          <form action="/museums" method="post">
+            <label for="museum_name">Assign a name to your new museum:</label>
+            <input name="museum_name" type="text">
+            <button class="btn btn-success" type="submit">Add Museum</button>
+            </form>
+        </div>
+        <div class="artwork">
+          <p class="lead">Add an art piece to a museum below:</p>
+          <form action="/artwork" method="post">
+            <label for="museum_id">Select a museum</label>
+            <select name='museum_id' type='text'>
+              <% @museums.each() do |museum| %>
+                <option value="<%= museum.id()%>"> <%= museum.name() %> </option>
+              <% end %>
+            </select>
+            <br>
+            
+            <label for="artwork_name">Name:</label>
+            <input name="artwork_name" type="text">
+            <label for="artwork_description">Description:</label>
+            <input name="artwork_description" type="text">
+            <br>
+            <button class="btn btn-success" type="submit">Add Artwork</button>
+          </form>

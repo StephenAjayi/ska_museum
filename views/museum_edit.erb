@@ -1,13 +1,31 @@
-<h3>Update <%= @museum.name() %></h3>
-
-<form action="/museum/<%= @museum.id %>" method="post">
-  <input name="_method" type="hidden" value="patch">
-  <label for="updated_name">Rename<%= @museum.name %></label>
-  <input name="updated_name" type="text">
-  <button typ="submit">Update Museum</button>
-</form>
-
-<form action="/museum/<%=@museum.id %>" method="post">
-  <input name="_method" type="hidden" value="delete">
-  <button typ="submit">Delete Museum</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-lg-6">
+        <div class="museum-edit-image">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="museum-edit-header"> 
+          <h3>Update <%= @museum.name() %></h3>
+        </div>
+        <div class="museum-edit">
+          <p class="lead">Change museum name:</p>
+          <form action="/museum/<%= @museum.id %>" method="post">
+            <input name="_method" type="hidden" value="patch">
+            <label for="updated_name">New name<%= @museum.name %></label>
+            <input name="updated_name" type="text">
+           <button class="btn btn-success" type="submit">Update Museum</button>
+          </form>
+        </div>
+        <div class="museum-delete">
+          <p class="lead">Delete <%= @museum.name() %>
+          <form action="/museum/<%=@museum.id %>" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button class ="btn btn-danger" type="submit">Delete Museum</button>
+          </form>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
