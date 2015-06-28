@@ -6,4 +6,4 @@ Set up: bundle to get required gems and set up Database as follows:<br />
   Tables:museums (name varchar, id serial PRIMARY KEY)) and artworks(name varchar, description varchar, museum_id int, id serial PRIMARY KEY).<br />
 License: Mit license, feel free to use for whatever you like! Images are the property of there rightful owners, no copyright infirgment intende.<br /> 
 Known bugs: None. <br />
-demo: A working demo of the app con be found here: http://guarded-lake-6904.herokuapp.com/<br
+demo: A working demo of the app con be found here: http://polar-wave-1929.herokuapp.com/<br
