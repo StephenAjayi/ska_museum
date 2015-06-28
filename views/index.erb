@@ -22,7 +22,7 @@
           <% end %>
           <form action="/museums" method="post">
             <label for="museum_name">Assign a name to your new museum:</label>
-            <input name="museum_name" type="text">
+            <input name="museum_name" type="text" required="required">
             <button class="btn btn-success" type="submit">Add Museum</button>
             </form>
         </div>
@@ -38,9 +38,9 @@
             <br>
             
             <label for="artwork_name">Name:</label>
-            <input name="artwork_name" type="text">
+            <input name="artwork_name" type="text" required="required">
             <label for="artwork_description">Description:</label>
-            <input name="artwork_description" type="text">
+            <input name="artwork_description" type="text" required="required">
             <br>
             <button class="btn btn-success" type="submit">Add Artwork</button>
           </form>
