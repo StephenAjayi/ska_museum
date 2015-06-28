@@ -46,7 +46,7 @@ patch('/museums/:id') do
   new_name = params.fetch('updated_name')
   id = params.fetch('id').to_i()
   @museum = Museum.find(id)
-  @museum.update(new_name)
+  @museum.update(:name => new_name)
   erb(:museum)
 end
 

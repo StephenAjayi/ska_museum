@@ -74,8 +74,15 @@ describe(Museum) do
     it('changes the name of a save instance of museum') do 
       test_museum = Museum.new(:name => "Indy", :id => nil)
       test_museum.save()
-      test_museum.update("Museum of Art")
+      test_museum.update(:name =>"Museum of Art")
       expect(test_museum.name()).to(eq("Museum of Art"))
+    end
+    
+    it('does not allow name to be updated to an empty string') do 
+      test_museum = Museum.new(:name => "Indy", :id => nil)
+      test_museum.save()
+      test_museum.update(:name =>"")
+      expect(test_museum.name()).to(eq("Indy"))
     end
   end
   

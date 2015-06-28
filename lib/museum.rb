@@ -40,9 +40,13 @@ class Museum
     
   end
   
-  define_method(:update) do |updated_name|
-    updated_museum = DB.exec("UPDATE museums SET name = '#{updated_name}' WHERE id = #{@id} RETURNING name;")
-    @name = updated_museum.first().fetch("name")
+  define_method(:update) do |attributes|
+    updated_name = attributes.fetch(:name, @name)
+    if updated_name.==("")
+    else
+      @name = updated_name
+    end
+    updated_museum = DB.exec("UPDATE museums SET name = '#{@name}' WHERE id = #{@id};")
   end
   
   define_method(:artworks) do 
