@@ -37,7 +37,6 @@ class Museum
   define_method(:delete) do
     DB.exec("DELETE FROM museums * WHERE id = #{@id};")
     DB.exec("DELETE FROM artworks * WHERE museum_id = #{@id}")
-    
   end
   
   define_method(:update) do |attributes|
@@ -46,7 +45,7 @@ class Museum
     else
       @name = updated_name
     end
-    updated_museum = DB.exec("UPDATE museums SET name = '#{@name}' WHERE id = #{@id};")
+    DB.exec("UPDATE museums SET name = '#{@name}' WHERE id = #{@id};")
   end
   
   define_method(:artworks) do 
@@ -62,5 +61,3 @@ class Museum
     artworks
   end
 end
-      
-   

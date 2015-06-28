@@ -37,21 +37,21 @@ class Artwork
   
   define_method(:update) do |attributes|
     updated_name = attributes.fetch(:name, @name)
-      if updated_name.==("")
-      else
-        @name = updated_name
+    if updated_name.==("")
+    else
+      @name = updated_name
     end
-    updated_art = DB.exec("UPDATE artworks SET name = '#{@name}' WHERE id = #{@id};")
+    DB.exec("UPDATE artworks SET name = '#{@name}' WHERE id = #{@id};")
     
     updated_description = attributes.fetch(:description, @description)
-      if updated_description.==("")
-      else
-        @description = updated_description
+    if updated_description.==("")
+    else
+      @description = updated_description
     end
-    updated_art = DB.exec("UPDATE artworks SET description = '#{@description}' WHERE id = #{@id};")
+    DB.exec("UPDATE artworks SET description = '#{@description}' WHERE id = #{@id};")
     
     @museum_id = attributes.fetch(:museum_id, @museum_id)
-    updated_art = DB.exec("UPDATE artworks SET museum_id = '#{@museum_id}' WHERE id = #{@id};")
+    DB.exec("UPDATE artworks SET museum_id = '#{@museum_id}' WHERE id = #{@id};")
   end
   
   define_singleton_method(:find) do |id|

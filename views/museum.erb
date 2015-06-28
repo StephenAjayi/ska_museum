@@ -1,15 +1,15 @@
 <div class="museum-artworks-image">
-<div class="container">
-  <div class="row">
-    <div classs="col-lg-12">
+  <div class="container">
+    <div class="row">
+      <div classs="col-lg-12">
         <div class="jumbotron">
           <h2><%= @museum.name() %></h2>
           <% if @museum.artworks.any?() %>
             <h3><%= @museum.name() %>'s Gallery</h3>
             <ul class="list-group">
-            <% @museum.artworks().each() do |artwork| %>
-              <li class="list-group-item"><p><%= artwork.name() %></p> <p><%= artwork.description() %></p><a class="edit_link" href="/artworks/<%= artwork.id() %>/edit">Edit <%= artwork.name %></a></li>
-            <% end %>
+              <% @museum.artworks().each() do |artwork| %>
+                <li class="list-group-item"><p><%= artwork.name() %></p> <p><%= artwork.description() %></p><a class="edit_link" href="/artworks/<%= artwork.id() %>/edit">Edit <%= artwork.name %></a></li>
+              <% end %>
             </ul>
           <% else %>
             <p>This museum has no pieces in it's gallery, <a href="/">add a piece here.</a></p>

@@ -90,7 +90,7 @@ describe(Museum) do
     it("returns all instances of artwork associated with a museum's id ") do 
       test_museum = Museum.new(:name => "The Gregory Museum", :id => nil)
       test_museum.save()
-       test_artwork = Artwork.new(:name => "Moonlight Dance", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
+      test_artwork = Artwork.new(:name => "Moonlight Dance", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
       test_artwork.save()
       test_artwork2 = Artwork.new(:name => "Moonlight Run", :description => "Modern painting.", :museum_id => test_museum.id(), :id => nil)
       test_artwork2.save()

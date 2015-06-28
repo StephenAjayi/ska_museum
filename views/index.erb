@@ -13,9 +13,10 @@
           <% if @museums.any?() %>
             <p class="lead">Click on a museum to view it's gallery:</p>
             <ul class="list-group">
-            <% @museums.each do |museum| %>
-              <li class="list-group-item"><a class="museum_link" href="/museums/<%= museum.id() %>"><%= museum.name() %></a><a class="edit_link" href="/museums/<%= museum.id %>/edit">Edit <%= museum.name() %></a>               </li>
-            <% end %>
+              <% @museums.each do |museum| %>
+                <li class="list-group-item"><a class="museum_link" href="/museums/<%= museum.id() %>"><%= museum.name() %></a><a class="edit_link" href="/museums/<%= museum.id %>/edit">
+                  Edit <%= museum.name() %></a></li>
+              <% end %>
             </ul>
           <% else %>
             <p class="lead">There are no museums yet, add one below.</p>
@@ -24,7 +25,7 @@
             <label for="museum_name">Assign a name to your new museum:</label>
             <input name="museum_name" type="text" required="required">
             <button class="btn btn-success" type="submit">Add Museum</button>
-            </form>
+          </form>
         </div>
         <div class="artwork">
           <p class="lead">Add an art piece to a museum below:</p>
@@ -36,7 +37,6 @@
               <% end %>
             </select>
             <br>
-            
             <label for="artwork_name">Name:</label>
             <input name="artwork_name" type="text" required="required">
             <label for="artwork_description">Description:</label>
@@ -44,3 +44,8 @@
             <br>
             <button class="btn btn-success" type="submit">Add Artwork</button>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

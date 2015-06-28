@@ -102,7 +102,3 @@ describe("Deletes an artwork from a museum", {:type => :feature}) do
     expect(page).to have_content("This museum has no pieces in it's gallery, add a piece here.")
   end 
 end
-
-
-    
-  
